@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { WeatherBox } from "./WeatherBox";
 
 function App() {
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("");
 
   const [weatherData, setWeatherData] = useState({
     data: null,
@@ -19,11 +19,10 @@ function App() {
     e.preventDefault();
     setWeatherData({ data: weatherData.data, loading: true });
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=93be819586db4e2e5bd1aa3f5a8dfad2&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=93be819586db4e2e5bd1aa3f5a8dfad2&units=metric`
     )
       .then((x) => x.json())
       .then((y) => {
-        console.log(y.cod);
         setWeatherData({ data: y, loading: false });
         setCity("");
       });

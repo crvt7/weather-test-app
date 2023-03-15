@@ -4,9 +4,6 @@ import humidity from "./humidity.png";
 
 
 export const WeatherBox = (data) => {
-  useEffect(() => {
-    console.log(data);
-  }, []);
 
   const weatherData = data.data;
 
